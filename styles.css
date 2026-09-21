@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #142653 0%,
+            #0a1534 35%,
+            #03091d 70%,
+            #01030c 100%
+        );
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    cursor: crosshair;
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =====================================================
+   MENSAJE
+   ===================================================== */
+
+.mensaje {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 95%;
+
+    text-align: center;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    color: #ffe69a;
+
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.9),
+        0 0 12px #ffd54f,
+        0 0 25px #ffb300,
+        0 0 50px rgba(255, 179, 0, 0.8),
+        0 0 90px rgba(255, 150, 0, 0.45);
+}
+
+
+/* =====================================================
+   "DE MI PARA TI"
+   ===================================================== */
+
+.linea-pequena {
+    font-size: clamp(30px, 5vw, 62px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 2s ease-out 0.5s forwards;
+}
+
+
+/* =====================================================
+   "PEQUEÑA MELANIE"
+   ===================================================== */
+
+.linea-grande {
+    font-size: clamp(55px, 10vw, 135px);
+
+    font-weight: bold;
+
+    font-style: italic;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    color: #fff0a8;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 2.2s ease-out 1s forwards,
+        brilloTexto 3s ease-in-out 3s infinite alternate;
+}
+
+
+/* =====================================================
+   CORAZÓN
+   ===================================================== */
+
+.corazon {
+    margin-top: 25px;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    color: #ffd75a;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 1.5s ease-out 2s forwards,
+        latido 1.8s ease-in-out 3.5s infinite;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+   ===================================================== */
+
+@keyframes aparecerTexto {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes brilloTexto {
+
+    from {
+        filter:
+            brightness(0.9)
+            drop-shadow(
+                0 0 10px #ffbf32
+            );
+    }
+
+    to {
+        filter:
+            brightness(1.3)
+            drop-shadow(
+                0 0 30px #ffd75a
+            );
+    }
+
+}
+
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .mensaje {
+        width: 96%;
+    }
+
+    .linea-pequena {
+        font-size: clamp(
+            25px,
+            7vw,
+            40px
+        );
+    }
+
+    .linea-grande {
+        font-size: clamp(
+            48px,
+            13vw,
+            80px
+        );
+
+        line-height: 1.05;
+    }
+
+    .corazon {
+        margin-top: 15px;
+    }
+
+}
